@@ -1,0 +1,10 @@
+<h2>Les Danseurs</h2>
+<ul class="dancers">
+  <li
+    *ngFor="let dancer of dancers"
+    (click)="onSelect(dancer)"
+    [class.selected]="dancer === selectedDancer"
+  >
+    <span class="badge"> {{ dancer.id }} </span> {{ dancer.name }}
+  </li>
+</ul>
