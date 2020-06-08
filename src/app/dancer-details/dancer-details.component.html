@@ -1,0 +1,15 @@
+<div *ngIf="dancer">
+  <h2>{{ dancer.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ dancer.id }}</div>
+  <div>
+    <label
+      >name:
+      <input [(ngModel)]="dancer.name" placeholder="name" />
+    </label>
+    <div><span>Crew: </span> {{ dancer.crew }}</div>
+
+    <div *ngFor="let category of dancer.categorie">
+      <span>Category: </span> {{ category }}
+    </div>
+  </div>
+</div>
