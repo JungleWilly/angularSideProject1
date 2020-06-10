@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Danseur } from './dancer';
-import { DANSEURS } from '../mock-dancers';
+import { DancerService } from '../dancer.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-dancers',
@@ -8,14 +9,26 @@ import { DANSEURS } from '../mock-dancers';
   styleUrls: ['./dancers.component.css'],
 })
 export class DanseursComponent implements OnInit {
-  dancers: Danseur[] = DANSEURS;
+  dancers: Danseur[];
   selectedDancer: Danseur;
+
+  constructor(
+    private dancerService: DancerService,
+    private messageService: MessageService
+  ) {}
+
+  ngOnInit(): void {
+    this.getDancers();
+  }
 
   onSelect(dancer: Danseur): void {
     this.selectedDancer = dancer;
+    this.messageService.add(`DancerService: Selected dancer id=${dancer.id}`);
   }
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  getDancers(): void {
+    this.dancerService
+      .getDancers()
+      .subscribe((dancers) => (this.dancers = dancers));
+  }
 }

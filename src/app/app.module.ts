@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DanseursComponent } from './dancers/dancers.component';
 import { DancerDetailsComponent } from './dancer-details/dancer-details.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DancerDetailsComponent } from './dancer-details/dancer-details.componen
     FooterComponent,
     DanseursComponent,
     DancerDetailsComponent,
+    MessagesComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
